@@ -1,12 +1,24 @@
-$('.nav, #hamburger-checkbox').click(function(e){
+$('body').on('click', '.hamburger-toggle', function(e){
+    e.preventDefault();
     e.stopPropagation();
-});
-
-$('html').click(function() {
-    //Hide the menus if visible
-    if($('#hamburger-checkbox').is(":checked"))
+    if($('#hamburger-menu').is(":checked"))
     {
-        $('#hamburger-checkbox, .nav input[type="checkbox"]').prop('checked', false);
+        hideMenuIfVisible();
+    }else{
+        $('#hamburger-menu').prop('checked', true);
+        $('html').on('click', hideMenuIfVisible);
+        $('nav').on('click', stopPropagation);
     }
-});
-  
+})
+
+function hideMenuIfVisible() {
+    if($('#hamburger-menu').is(":checked"))
+    {
+        $('#hamburger-menu, nav input[type="checkbox"]').prop('checked', false);
+        $('html').off('click', hideMenuIfVisible);
+        $('nav').off('click', stopPropagation);
+    }
+}
+function stopPropagation(e) {
+    e.stopPropagation();
+}

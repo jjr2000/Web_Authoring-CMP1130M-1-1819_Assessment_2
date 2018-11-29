@@ -25,13 +25,7 @@ section#header .container{
     position: relative;
 }
 
-
-
-
-
-
-
-  .nav {
+  nav {
     position: absolute;
     margin-top:1em;
     right:0;
@@ -53,11 +47,11 @@ section#header .container{
     margin: 0;
   }
   
-  #hamburger-checkbox {
+  #hamburger-menu {
     display: none;
   }
   
-  .hamburger-icon {
+  .hamburger-toggle {
     position: absolute;
     top: 7px;
     right: 1px;
@@ -66,7 +60,7 @@ section#header .container{
     height: 21px;
     width: 25px;
   }
-  .hamburger-icon span {
+  .hamburger-toggle span {
     display: block;
     top: 8px;
     width: 25px;
@@ -76,7 +70,7 @@ section#header .container{
     transition-duration: 0.2s;
     transition-delay: 0s;
   }
-  .hamburger-icon span:after, .hamburger-icon span:before {
+  .hamburger-toggle span:after, .hamburger-toggle span:before {
     display: block;
     content: "";
     position: absolute;
@@ -86,36 +80,36 @@ section#header .container{
     transition-duration: 0.2s;
     transition-delay: 0s;
   }
-  .hamburger-icon span:before {
+  .hamburger-toggle span:before {
     margin-top: -8px;
   }
-  .hamburger-icon span:after {
+  .hamburger-toggle span:after {
     margin-top: 8px;
   }
   
-  #hamburger-checkbox:checked ~ .nav {
+  #hamburger-menu:checked ~ nav {
     transform:scaleY(1);
   }
   
-  #hamburger-checkbox:checked ~ .hamburger-icon span {
+  #hamburger-menu:checked ~ .hamburger-toggle span {
     background-color: rgba(0, 0, 0, 0);
     transition-duration: 0.2s;
   }
-  #hamburger-checkbox:checked ~ .hamburger-icon span:before, #hamburger-checkbox:checked ~ .hamburger-icon span:after {
+  #hamburger-menu:checked ~ .hamburger-toggle span:before, #hamburger-menu:checked ~ .hamburger-toggle span:after {
     margin-top: 0px;
     transition-duration: 0.2s;
   }
-  #hamburger-checkbox:checked ~ .hamburger-icon span:before {
+  #hamburger-menu:checked ~ .hamburger-toggle span:before {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-  #hamburger-checkbox:checked ~ .hamburger-icon span:after {
+  #hamburger-menu:checked ~ .hamburger-toggle span:after {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
   }
   
-  .nav a,
-  .nav label {
+  nav a,
+  nav label {
     display: block;
     padding: 0.85rem;
     color: #fff;
@@ -125,15 +119,15 @@ section#header .container{
     text-decoration: none;
   }
   
-  .nav a:focus,
-  .nav a:hover,
-  .nav label:focus,
-  .nav label:hover {
+  nav a:focus,
+  nav a:hover,
+  nav label:focus,
+  nav label:hover {
     color: rgba(255, 255, 255, 0.5);
     background: #030303;
   }
   
-  .nav label {
+  nav label {
     cursor: pointer;
   }
   
@@ -202,19 +196,19 @@ section#header .container{
     -webkit-transition: max-height 0.2s ease-in-out;
   }
   
-  .nav__list input[type="checkbox"]:checked + label + ul {
+  nav input[type="checkbox"]:checked + label + ul {
     /* reset the height when checkbox is checked */
     max-height: 1000px;
   }
   
-  .nav__list input[type="checkbox"] + label > .fa-angle-right {
+  nav input[type="checkbox"] + label > .fa-angle-right {
     float: right;
     transition: -webkit-transform 0.2s;
     transition: transform 0.2s;
     transition: transform 0.2s, -webkit-transform 0.2s;
   }
   
-  .nav__list input[type="checkbox"]:checked + label > .fa-angle-right {
+  nav input[type="checkbox"]:checked + label > .fa-angle-right {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
   }
