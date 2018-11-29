@@ -1,6 +1,12 @@
-$(".nav").click(function(e){
-    e.stopPropagation(); //do nothing
+$('.nav, #hamburger-checkbox').click(function(e){
+    e.stopPropagation();
 });
-$("*").click(function(){
-    console.log("outside");
+
+$('html').click(function() {
+    //Hide the menus if visible
+    if($('#hamburger-checkbox').is(":checked"))
+    {
+        $('#hamburger-checkbox, .nav input[type="checkbox"]').prop('checked', false);
+    }
 });
+  
