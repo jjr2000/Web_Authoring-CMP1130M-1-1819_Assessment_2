@@ -9,8 +9,10 @@
 
     <!-- Load all libraries before loading site specific scripts and styles -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Archivo+Black" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script async defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script async defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0"
+        crossorigin="anonymous"></script>
     <!-- This is a reset stylesheet to get a level starting point between browsers -->
     <link rel="stylesheet" type="text/css" media="screen" href="CSS/normalize.css" />
 
@@ -23,46 +25,47 @@
         <div class="container">
             <h1>K.FLAY</h1>
 
+            <section class="hamburger-nav">
+                <input type="checkbox" class="hamburger-menu" />
+                <label class="hamburger-toggle">
+                    <span></span>
+                </label>
 
-            <input type="checkbox" id="hamburger-menu"/>
-            <label class="hamburger-toggle">
-              <span></span>
-            </label>
-            
-            <nav role="navigation">
-              <ul>
-                <li>
-                  <input id="group-1" type="checkbox" hidden />
-                  <label for="group-1"><span class="fa fa-angle-right"></span> Albums</label>
-                  <ul class="group-list">
-                    <li><a href="#">1st level item</a></li>
-                    <li><a href="#">1st level item</a></li>
-                    <li><a href="#">1st level item</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <input id="group-2" type="checkbox" hidden />
-                  <label for="group-2"><span class="fa fa-angle-right"></span> EPs</label>
-                  <ul class="group-list">
-                        <li><a href="#">1st level item</a></li>
-                        <li><a href="#">1st level item</a></li>
-                        <li><a href="#">1st level item</a></li>
-                      </ul>
-                </li>
-                <li>
-                  <input id="group-3" type="checkbox" hidden />
-                  <label for="group-3"><span class="fa fa-angle-right"></span> Singles</label>
-                  <ul class="group-list">
-                        <li><a href="#">1st level item</a></li>
-                        <li><a href="#">1st level item</a></li>
-                        <li><a href="#">1st level item</a></li>
-                      </ul>
-                </li>
-                <li>
-                  <a href="#">Shop</a>      
-                </li>
-              </ul>
-            </nav>
+                <nav role="navigation">
+                    <ul>
+                        <li>
+                            <input id="albums" type="checkbox" hidden />
+                            <label for="albums"><span class="fa fa-angle-right"></span> Albums</label>
+                            <ul class="group-list">
+                                <li><a href="#">1st level item</a></li>
+                                <li><a href="#">1st level item</a></li>
+                                <li><a href="#">1st level item</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <input id="eps" type="checkbox" hidden />
+                            <label for="eps"><span class="fa fa-angle-right"></span> EPs</label>
+                            <ul class="group-list">
+                                <li><a href="#">1st level item</a></li>
+                                <li><a href="#">1st level item</a></li>
+                                <li><a href="#">1st level item</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <input id="singles" type="checkbox" hidden />
+                            <label for="singles"><span class="fa fa-angle-right"></span> Singles</label>
+                            <ul class="group-list">
+                                <li><a href="#">1st level item</a></li>
+                                <li><a href="#">1st level item</a></li>
+                                <li><a href="#">1st level item</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Shop</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
 
         </div>
     </section>
