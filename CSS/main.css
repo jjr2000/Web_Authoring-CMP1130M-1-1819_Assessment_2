@@ -1,0 +1,221 @@
+body{
+    font-family: 'Amatic SC', cursive;
+}
+
+.container{
+    max-width: 70rem;
+    width: 100%;
+    margin: auto;
+}
+
+section#header{
+    color: white;
+    background: black;
+    padding: 1rem 0;
+    position: sticky;
+}
+
+section#header h1{
+    letter-spacing: 0.1em;
+    font-family: 'Archivo Black', sans-serif;
+    margin: 0;
+}
+
+section#header .container{
+    position: relative;
+}
+
+
+
+
+
+
+
+  .nav {
+    position: absolute;
+    margin-top:1em;
+    right:0;
+    width: 300px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+
+    transform:scaleY(0);
+    transform-origin:top; 
+
+    transition: transform 0.2s ease-in-out;
+    -moz-transition: transform 0.2s ease-in-out;
+    -webkit-transition: transform 0.2s ease-in-out;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #hamburger-checkbox {
+    display: none;
+  }
+  
+  .hamburger-icon {
+    position: absolute;
+    top: 7px;
+    right: 1px;
+    display: block;
+    cursor: pointer;
+    height: 21px;
+    width: 25px;
+  }
+  .hamburger-icon span {
+    display: block;
+    top: 8px;
+    width: 25px;
+    height: 5px;
+    background-color: #fff;
+    position: relative;
+    transition-duration: 0.2s;
+    transition-delay: 0s;
+  }
+  .hamburger-icon span:after, .hamburger-icon span:before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    background-color: #fff;
+    transition-duration: 0.2s;
+    transition-delay: 0s;
+  }
+  .hamburger-icon span:before {
+    margin-top: -8px;
+  }
+  .hamburger-icon span:after {
+    margin-top: 8px;
+  }
+  
+  #hamburger-checkbox:checked ~ .nav {
+    transform:scaleY(1);
+  }
+  
+  #hamburger-checkbox:checked ~ .hamburger-icon span {
+    background-color: rgba(0, 0, 0, 0);
+    transition-duration: 0.2s;
+  }
+  #hamburger-checkbox:checked ~ .hamburger-icon span:before, #hamburger-checkbox:checked ~ .hamburger-icon span:after {
+    margin-top: 0px;
+    transition-duration: 0.2s;
+  }
+  #hamburger-checkbox:checked ~ .hamburger-icon span:before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  #hamburger-checkbox:checked ~ .hamburger-icon span:after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  .nav a,
+  .nav label {
+    display: block;
+    padding: 0.85rem;
+    color: #fff;
+    background-color: #151515;
+    box-shadow: inset 0 -1px #1d1d1d;
+    transition: all 0.2s ease-in;
+    text-decoration: none;
+  }
+  
+  .nav a:focus,
+  .nav a:hover,
+  .nav label:focus,
+  .nav label:hover {
+    color: rgba(255, 255, 255, 0.5);
+    background: #030303;
+  }
+  
+  .nav label {
+    cursor: pointer;
+  }
+  
+  /**
+   * Styling first level lists items
+   */
+  .group-list a,
+  .group-list label {
+    padding-left: 2rem;
+    background: #252525;
+    box-shadow: inset 0 -1px #373737;
+  }
+  
+  .group-list a:focus,
+  .group-list a:hover,
+  .group-list label:focus,
+  .group-list label:hover {
+    background: #131313;
+  }
+  
+  /**
+   * Styling second level list items
+   */
+  .sub-group-list a,
+  .sub-group-list label {
+    padding-left: 4rem;
+    background: #353535;
+    box-shadow: inset 0 -1px #474747;
+  }
+  
+  .sub-group-list a:focus,
+  .sub-group-list a:hover,
+  .sub-group-list label:focus,
+  .sub-group-list label:hover {
+    background: #232323;
+  }
+  
+  /**
+   * Styling third level list items
+   */
+  .sub-sub-group-list a,
+  .sub-sub-group-list label {
+    padding-left: 6rem;
+    background: #454545;
+    box-shadow: inset 0 -1px #575757;
+  }
+  
+  .sub-sub-group-list a:focus,
+  .sub-sub-group-list a:hover,
+  .sub-sub-group-list label:focus,
+  .sub-sub-group-list label:hover {
+    background: #333333;
+  }
+  
+  /**
+   * Hide nested lists
+   */
+  .group-list,
+  .sub-group-list,
+  .sub-sub-group-list {
+    height: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-in-out;
+    -moz-transition: max-height 0.2s ease-in-out;
+    -webkit-transition: max-height 0.2s ease-in-out;
+  }
+  
+  .nav__list input[type="checkbox"]:checked + label + ul {
+    /* reset the height when checkbox is checked */
+    max-height: 1000px;
+  }
+  
+  .nav__list input[type="checkbox"] + label > .fa-angle-right {
+    float: right;
+    transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
+  }
+  
+  .nav__list input[type="checkbox"]:checked + label > .fa-angle-right {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  
