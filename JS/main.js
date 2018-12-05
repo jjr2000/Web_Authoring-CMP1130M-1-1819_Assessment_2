@@ -11,6 +11,11 @@ $('body').on('click', '.hamburger-toggle', function(e){
     }
 })
 
+$('body').on('change', '.category', function(){
+    if(this.checked)
+        $(this).parent().siblings().find('.category').prop('checked', false);
+});
+
 function hideMenuIfVisible() {
     if($('.hamburger-menu').is(":checked"))
     {
