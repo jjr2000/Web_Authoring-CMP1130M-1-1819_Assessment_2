@@ -30,94 +30,89 @@ function stopPropagation(e) {
 
 
 
-if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-var container, stats;
-var camera, controls, scene, renderer;
-var cross;
 
-function init() {
-    camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 1e10 );
-    camera.position.z = 6;
 
-    controls = new THREE.TrackballControls( camera );
-    controls.rotateSpeed = 5.0;
-    controls.zoomSpeed = 5;
-    controls.panSpeed = 2;
-    controls.noZoom = false;
-    controls.noPan = false;
-    controls.staticMoving = true;
-    controls.dynamicDampingFactor = 0.3;
-
-    scene = new THREE.Scene();
-    scene.add( camera );
-
-    var sphereMaterial =
-          new THREE.MeshLambertMaterial(
-            {
-              color: 0xCC0000
-            });
-
-    // light
-
-    var dirLight = new THREE.DirectionalLight( 0xffffff );
-    dirLight.position.set( 200, 200, 1000 ).normalize();
-
-    camera.add( dirLight );
-    camera.add( dirLight.target );
-
-    var loader = new THREE.VRMLLoader();
-    loader.addEventListener( 'load', function ( event ) {
-        var object = event.content; 
-        object.traverse( function ( child ) {
-              if ( child instanceof THREE.Mesh ) {
-                //child.material.map = texture;
-                //child.material = sphereMaterial;
-                child.material.side = THREE.DoubleSide;
-              }
-           } );
-
-        scene.add(object);
-
-    } );
-    loader.load( "JS/three.js/examples/models/vrml/house.wrl" );
-
-    // renderer
-
-    renderer = new THREE.WebGLRenderer( { antialias: false } );
-    renderer.setSize( window.innerWidth, window.innerHeight );
-
-    renderer.setSize(200, 200);
-    document.getElementById("threewindow").appendChild(renderer.domElement);
-//              container = document.createElement( 'div' );
-//              document.body.appendChild( container );
-//              container.appendChild( renderer.domElement );
-
-//              stats = new Stats();
-//              stats.domElement.style.position = 'absolute';
-//              stats.domElement.style.top = '0px';
-//              container.appendChild( stats.domElement );
-
-    window.addEventListener( 'resize', onWindowResize, false );
-
-    animate();
+if (!Detector.webgl) {
+    Detector.addGetWebGLMessage();
 }
-
+var container;
+var camera, controls, scene, renderer;
+var lighting, ambient, keyLight, fillLight, backLight;
+init();
+animate();
+function init() {
+    container = document.createElement('div');
+    document.body.appendChild(container);
+    /* Camera */
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.z = 3;
+    /* Scene */
+    scene = new THREE.Scene();
+    lighting = false;
+    ambient = new THREE.AmbientLight(0xffffff, 1.0);
+    scene.add(ambient);
+    keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 1.0);
+    keyLight.position.set(-100, 0, 100);
+    fillLight = new THREE.DirectionalLight(new THREE.Color('hsl(240, 100%, 75%)'), 0.75);
+    fillLight.position.set(100, 0, 100);
+    backLight = new THREE.DirectionalLight(0xffffff, 1.0);
+    backLight.position.set(100, 0, -100).normalize();
+    /* Model */
+    var mtlLoader = new THREE.MTLLoader();
+    mtlLoader.setBaseUrl('assets/');
+    mtlLoader.setPath('assets/');
+    mtlLoader.load('female-croupier-2013-03-26.mtl', function (materials) {
+        materials.preload();
+        materials.materials.default.map.magFilter = THREE.NearestFilter;
+        materials.materials.default.map.minFilter = THREE.LinearFilter;
+        var objLoader = new THREE.OBJLoader();
+        objLoader.setMaterials(materials);
+        objLoader.setPath('assets/');
+        objLoader.load('female-croupier-2013-03-26.obj', function (object) {
+            scene.add(object);
+        });
+    });
+    /* Renderer */
+    renderer = new THREE.WebGLRenderer();
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(new THREE.Color("hsl(0, 0%, 10%)"));
+    container.appendChild(renderer.domElement);
+    /* Controls */
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.25;
+    controls.enableZoom = false;
+    /* Events */
+    window.addEventListener('resize', onWindowResize, false);
+    window.addEventListener('keydown', onKeyboardEvent, false);
+}
 function onWindowResize() {
-
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-
-    renderer.setSize( window.innerWidth, window.innerHeight );
-
-    controls.handleResize();
-
+    renderer.setSize(window.innerWidth, window.innerHeight);
 }
-
+function onKeyboardEvent(e) {
+    if (e.code === 'KeyL') {
+        lighting = !lighting;
+        if (lighting) {
+            ambient.intensity = 0.25;
+            scene.add(keyLight);
+            scene.add(fillLight);
+            scene.add(backLight);
+        } else {
+            ambient.intensity = 1.0;
+            scene.remove(keyLight);
+            scene.remove(fillLight);
+            scene.remove(backLight);
+        }
+    }
+}
 function animate() {
-    requestAnimationFrame( animate );
+    requestAnimationFrame(animate);
     controls.update();
-    renderer.render( scene, camera );
-    //stats.update();
+    render();
 }
-
-init();
+function render() {
+    renderer.render(scene, camera);
+}
