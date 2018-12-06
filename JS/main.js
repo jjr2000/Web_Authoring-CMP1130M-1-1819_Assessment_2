@@ -35,14 +35,12 @@ function stopPropagation(e) {
 if (!Detector.webgl) {
     Detector.addGetWebGLMessage();
 }
-var container;
+var container = $(".three-container")[0];
 var camera, controls, scene, renderer;
 var lighting, ambient, keyLight, fillLight, backLight;
 init();
 animate();
 function init() {
-    container = document.createElement('div');
-    document.body.appendChild(container);
     /* Camera */
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
     camera.position.z = 3;
