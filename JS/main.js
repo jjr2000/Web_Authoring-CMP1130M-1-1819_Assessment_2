@@ -57,15 +57,15 @@ function init() {
     backLight.position.set(100, 0, -100).normalize();
     /* Model */
     var mtlLoader = new THREE.MTLLoader();
-    mtlLoader.setBaseUrl('Content/assets/walt');
-    mtlLoader.setPath('Content/assets/walt');
+    mtlLoader.setBaseUrl('Content/assets/walt/');
+    mtlLoader.setPath('Content/assets/walt/');
     mtlLoader.load('WaltHead.mtl', function (materials) {
         materials.preload();
         materials.materials.default.map.magFilter = THREE.NearestFilter;
         materials.materials.default.map.minFilter = THREE.LinearFilter;
         var objLoader = new THREE.OBJLoader();
         objLoader.setMaterials(materials);
-        objLoader.setPath('Content/assets/walt');
+        objLoader.setPath('Content/assets/walt/');
         objLoader.load('WaltHead.obj', function (object) {
             scene.add(object);
         });
