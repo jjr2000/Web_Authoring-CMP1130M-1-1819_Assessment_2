@@ -59,15 +59,15 @@ function init() {
     backLight.position.set(100, 0, -100).normalize();
     /* Model */
     var mtlLoader = new THREE.MTLLoader();
-    mtlLoader.setBaseUrl('assets/');
-    mtlLoader.setPath('assets/');
+    mtlLoader.setBaseUrl('Content/assets/');
+    mtlLoader.setPath('Content/assets/');
     mtlLoader.load('female-croupier-2013-03-26.mtl', function (materials) {
         materials.preload();
         materials.materials.default.map.magFilter = THREE.NearestFilter;
         materials.materials.default.map.minFilter = THREE.LinearFilter;
         var objLoader = new THREE.OBJLoader();
         objLoader.setMaterials(materials);
-        objLoader.setPath('assets/');
+        objLoader.setPath('Content/assets/');
         objLoader.load('female-croupier-2013-03-26.obj', function (object) {
             scene.add(object);
         });
