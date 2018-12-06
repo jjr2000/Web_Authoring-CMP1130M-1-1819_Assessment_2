@@ -207,7 +207,7 @@ section#header .container {
 
 #b1 {
   background-image: url("../Content/backdrop-1.jpg");
-  background-position: right -25rem;
+  background-position: center top;
 }
 
 #b2 {
@@ -220,36 +220,62 @@ section#header .container {
   background-position: center top;
 }
 
+#b4 {
+  background-image: url("../Content/backdrop-4.jpg");
+  background-position: center top;
+}
+
+#b5 {
+  background-image: url("../Content/backdrop-5.jpg");
+  background-position: right bottom;
+}
+
 .plate {
-  padding: 6rem 0;
+  padding: 10rem 0;
   text-align: center;
 }
 
 #seattle-sessions {
-  color: #FFFFFF;
-  background-color: #575757;
+  color: rgb(255, 255, 255);
+  background-color: rgb(87, 87, 87);
 }
 
 #thunder {
-  color: #F5D3DF;
-  background-color: #5DA3C0;
+  color: rgb(245, 211, 223);
+  background-color: rgb(93, 163, 192);
 }
 
 #everywhere-is-somewhere {
-  color: #FFFFFF;
-  background-color: #AF3237;
+  color: rgb(255, 255, 255);
+  background-color: rgb(175, 50, 55);
 }
 
 #fml {
-  color: #7DCDC4;
-  background-color: #F8EE6B;
+  color: rgb(125, 205, 196);
+  background-color: rgb(248, 238, 107);
+}
+
+#life-as-a-dog {
+  color: rgb(251, 191, 151);
+  background-color: rgb(242, 137, 100);
+}
+
+#what-if-it-is {
+  color: rgb(26, 250, 137);
+  background-color: rgb(249, 249, 249);
+}
+
+#west-ghost {
+  color: rgb(0, 0, 0);
+  background-color: rgb(237, 0, 140);
 }
 
 .artwork {
   float: right;
   width: 50%;
 }
-.artwork > img{
+
+.artwork>img {
   width: 100%;
 }
 
