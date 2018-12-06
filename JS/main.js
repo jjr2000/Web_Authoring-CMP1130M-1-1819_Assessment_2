@@ -66,8 +66,8 @@ function init() {
 
         materials.preload();
 
-        materials.materials.default.map.magFilter = THREE.NearestFilter;
-        materials.materials.default.map.minFilter = THREE.LinearFilter;
+        //materials.materials.default.map.magFilter = THREE.NearestFilter;
+        //materials.materials.default.map.minFilter = THREE.LinearFilter;
 
         var objLoader = new THREE.OBJLoader();
         objLoader.setMaterials(materials);
