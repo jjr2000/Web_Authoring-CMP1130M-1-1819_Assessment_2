@@ -26,12 +26,6 @@ function stopPropagation(e) {
     e.stopPropagation();
 }
 
-
-
-
-
-
-
 if (!Detector.webgl) {
     Detector.addGetWebGLMessage();
 }
@@ -42,7 +36,7 @@ init();
 animate();
 function init() {
     /* Camera */
-    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+    camera = new THREE.PerspectiveCamera(45, (window.innerWidth / 2) / (window.innerHeight / 2), 1, 1000);
     camera.position.z = 3;
     /* Scene */
     scene = new THREE.Scene();
@@ -73,7 +67,7 @@ function init() {
     /* Renderer */
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth/2, window.innerHeight/2);
     renderer.setClearColor(new THREE.Color("hsl(0, 0%, 10%)"));
     container.appendChild(renderer.domElement);
     /* Controls */
@@ -86,9 +80,9 @@ function init() {
     window.addEventListener('keydown', onKeyboardEvent, false);
 }
 function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = (window.innerWidth / 2) / (window.innerHeight / 2);
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
 }
 function onKeyboardEvent(e) {
     if (e.code === 'KeyL') {
