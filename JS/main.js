@@ -39,7 +39,7 @@ var windowHalfY = window.innerHeight / 2;
 init();
 animate();
 function init() {
-    container = document.createElement( 'div' );
+    container = $(".three-container")[0]
     document.body.appendChild( container );
     camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
     camera.position.z = 250;
