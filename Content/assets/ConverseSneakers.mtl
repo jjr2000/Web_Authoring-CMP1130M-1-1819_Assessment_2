@@ -10,8 +10,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_Bump -bm 0.100000 source\\Color.png
-map_Kd source\\Color.png
+map_Bump -bm 0.100000 Color.png
+map_Kd Color.png
 
 newmtl Base_AO
 Ns 96.078431
@@ -22,8 +22,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_Kd source\AO.png
-map_Bump -bm 0.100000 source\\Color.png
+map_Kd AO.png
+map_Bump -bm 0.100000 Color.png
 
 newmtl Color
 Ns 96.078431
@@ -34,4 +34,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 1
-map_Kd source\\Color.png
+map_Kd Color.png
