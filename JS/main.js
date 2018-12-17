@@ -60,12 +60,12 @@ function init() {
     var onError = function () { };
     new THREE.MTLLoader()
         .setPath( 'Content/assets/' )
-        .load( 'ConverseSneakers.mtl', function ( materials ) {
+        .load( 'vans.mtl', function ( materials ) {
             materials.preload();
             new THREE.OBJLoader()
                 .setMaterials( materials )
                 .setPath( 'Content/assets/' )
-                .load( 'ConverseSneakers.obj', function ( object ) {
+                .load( 'vans.obj', function ( object ) {
                     object.position.y = - 95;
                     scene.add( object );
                 }, onProgress, onError );
