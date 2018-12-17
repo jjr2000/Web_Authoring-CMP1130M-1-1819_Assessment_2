@@ -53,14 +53,14 @@ function init() {
     var mtlLoader = new THREE.MTLLoader();
     mtlLoader.setBaseUrl('Content/assets/');
     mtlLoader.setPath('Content/assets/');
-    mtlLoader.load('female-croupier-2013-03-26.mtl', function (materials) {
+    mtlLoader.load('ConverseSneakers.mtl', function (materials) {
         materials.preload();
         materials.materials.default.map.magFilter = THREE.NearestFilter;
         materials.materials.default.map.minFilter = THREE.LinearFilter;
         var objLoader = new THREE.OBJLoader();
         objLoader.setMaterials(materials);
         objLoader.setPath('Content/assets/');
-        objLoader.load('female-croupier-2013-03-26.obj', function (object) {
+        objLoader.load('ConverseSneakers.obj', function (object) {
             scene.add(object);
         });
     });
