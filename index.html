@@ -9,15 +9,15 @@
 
     <!-- Load all libraries before loading site specific scripts and styles -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Archivo+Black" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    <script async defer src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script async defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0"
         crossorigin="anonymous"></script>
 
-        <script src="JS/three.js"></script>
-        <script src="JS/MTLLoader.js"></script>
-        <script src="JS/OBJLoader.js"></script>
-        <script src="JS/OrbitControls.js"></script>
+        <script async defer src="JS/three.js"></script>
+        <script async defer src="JS/MTLLoader.js"></script>
+        <script async defer src="JS/OBJLoader.js"></script>
+        <script async defer src="JS/OrbitControls.js"></script>
 
     <!-- This is a reset stylesheet to get a level starting point between browsers -->
     <link rel="stylesheet" type="text/css" media="screen" href="CSS/normalize.css" />
@@ -44,9 +44,9 @@
                             <label for="albums"><span class="fa fa-angle-right"></span> Albums</label>
                             <ul class="group-list">
                                 <li><a href="#everywhere-is-somewhere">Everywhere Is Somewhere</a></li>
-                                <li><a href="#">Life Is A Dog</a></li>
-                                <li><a href="#">West Ghost</a></li>
-                                <li><a href="#">I Stopped Caring in '96</a></li>
+                                <li><a href="#life-as-a-dog">Life Is A Dog</a></li>
+                                <li><a href="#west-ghost">West Ghost</a></li>
+                                <li><a href="#i-stopped-caring-in-96">I Stopped Caring in '96</a></li>
                             </ul>
                         </li>
                         <li>
@@ -54,11 +54,11 @@
                             <label for="eps"><span class="fa fa-angle-right"></span> EPs</label>
                             <ul class="group-list">
                                 <li><a href="#seattle-sessions">Seattle Sessions</a></li>
-                                <li><a href="#">What If It Is</a></li>
-                                <li><a href="#">Eyes Shut</a></li>
-                                <li><a href="#">K.Flay</a></li>
-                                <li><a href="#">Single And Famous</a></li>
-                                <li><a href="#">K.Flay Presents Mashed Potatoes</a></li>
+                                <li><a href="#what-if-it-is">What If It Is</a></li>
+                                <li><a href="#eyes-shut">Eyes Shut</a></li>
+                                <li><a href="#k-flay">K.Flay</a></li>
+                                <li><a href="#single-and-famous">Single And Famous</a></li>
+                                <li><a href="#k-flay-presents-mashed-potatoes">K.Flay Presents Mashed Potatoes</a></li>
                             </ul>
                         </li>
                         <li>
@@ -86,7 +86,7 @@
                 <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2018</span>
             </span>
         </div>
-        <section id="seattle-sessions">
+        <section id="seattle-sessions" class="multi">
             <div class="container clearfix listing">
                 <div class="artwork">
                     <img src="./Content/artwork-1.jpg" />
@@ -112,7 +112,7 @@
                 <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2017</span>
             </span>
         </div>
-        <section id="thunder">
+        <section id="thunder" class="single">
             <div class="container clearfix listing">
                 <div class="artwork">
                     <img src="./Content/artwork-2.jpg" />
@@ -125,7 +125,7 @@
                 </div>
             </div>
         </section>
-        <section id="everywhere-is-somewhere">
+        <section id="everywhere-is-somewhere" class="multi">
             <div class="container clearfix listing">
                 <div class="artwork">
                     <img src="./Content/artwork-3.jpg" />
@@ -170,7 +170,7 @@
                     <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2016</span>
                 </span>
             </div>
-            <section id="fml">
+            <section id="fml" class="single">
                 <div class="container clearfix listing">
                     <div class="artwork">
                         <img src="./Content/artwork-4.jpg" />
@@ -189,7 +189,7 @@
                     <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2014</span>
                 </span>
             </div>
-            <section id="life-as-a-dog">
+            <section id="life-as-a-dog" class="multi">
                 <div class="container clearfix listing">
                     <div class="artwork">
                         <img src="./Content/artwork-5.jpg" />
@@ -221,7 +221,7 @@
                     <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2013</span>
                 </span>
             </div>
-            <section id="what-if-it-is">
+            <section id="what-if-it-is" class="multi">
                 <div class="container clearfix listing">
                     <div class="artwork">
                         <img src="./Content/artwork-6.jpg" />
@@ -239,7 +239,7 @@
                     </div>
                 </div>
             </section>
-            <section id="west-ghost">
+            <section id="west-ghost" class="multi">
                 <div class="container clearfix listing">
                     <div class="artwork">
                         <img src="./Content/artwork-7.jpg" />
@@ -269,7 +269,7 @@
                     <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2012</span>
                 </span>
             </div>
-            <section id="eyes-shut">
+            <section id="eyes-shut" class="multi">
                 <div class="container clearfix listing">
                     <div class="artwork">
                         <img src="./Content/artwork-8.jpg" />
@@ -295,7 +295,7 @@
                     <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2011</span>
                 </span>
             </div>
-            <section id="i-stopped-caring-in-96">
+            <section id="i-stopped-caring-in-96" class="multi">
                 <div class="container clearfix listing">
                     <div class="artwork">
                         <img src="./Content/artwork-9.jpg" />
@@ -325,7 +325,7 @@
                     <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2010</span>
                 </span>
             </div>
-            <section id="k-flay">
+            <section id="k-flay" class="multi">
                 <div class="container clearfix listing">
                     <div class="artwork">
                         <img src="./Content/artwork-10.jpg" />
@@ -351,7 +351,7 @@
                     <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2009</span>
                 </span>
             </div>
-            <section id="single-and-famous">
+            <section id="single-and-famous" class="multi">
                 <div class="container clearfix listing">
                     <div class="artwork">
                         <img src="./Content/artwork-11.jpg" />
@@ -371,7 +371,7 @@
                     </div>
                 </div>
             </section>
-            <section id="k-flay-presents-mashed-potatoes">
+            <section id="k-flay-presents-mashed-potatoes" class="single">
                 <div class="container clearfix listing">
                     <div class="artwork">
                         <img src="./Content/artwork-12.jpg" />

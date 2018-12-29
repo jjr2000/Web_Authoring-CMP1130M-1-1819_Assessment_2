@@ -1,0 +1,331 @@
+body {
+  background-color: black;
+  font-family: 'Amatic SC', cursive;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 60rem;
+  width: 100%;
+  margin: auto;
+  padding: 0 10px;
+}
+
+section#header {
+  color: white;
+  background: black;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  opacity: 0.8;
+
+  img {
+    height: 2rem;
+  }
+
+  .container {
+    position: relative;
+  }
+}
+
+.hamburger-nav {
+  position: relative;
+  float: right;
+
+  nav {
+    position: absolute;
+    top: 3rem;
+    margin-top: 3px;
+    right: 0;
+    width: 300px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+    /* This will make a nice slide down affect for the main nav,
+        using a tranform works well in this case due to the floating
+        nature of the nav */
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.2s ease-in-out;
+    -moz-transition: transform 0.2s ease-in-out;
+    -webkit-transition: transform 0.2s ease-in-out;
+
+    a, label {
+      font-size: 1.5rem;
+      height: 1.7rem;
+      display: block;
+      padding: 0.85rem;
+      color: #fff;
+      background-color: #151515;
+      box-shadow: inset 0 -1px #1d1d1d;
+      /* Applying the transition affect to all due to using 4 seperate properties
+          to get the slide affect to work properly */
+      transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -webkit-transition: all 0.2s ease-in-out;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:focus, &:hover {
+        color: rgba(255, 255, 255, 0.5);
+        background: #030303;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hamburger-toggle {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    display: block;
+    cursor: pointer;
+    height: 21px;
+    width: 25px;
+
+    span {
+      display: block;
+      top: 8px;
+      width: 25px;
+      height: 5px;
+      background-color: #fff;
+      border-radius: 2px;
+      position: relative;
+      transition-duration: 0.2s;
+      transition-delay: 0s;
+
+      &::before, &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 5px;
+        background-color: #fff;
+        border-radius: 2px;
+        transition-duration: 0.2s;
+        transition-delay: 0s;
+      }
+
+      &::before {
+        margin-top: -8px;
+      }
+
+      &::after {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .hamburger-menu {
+    display: none;
+
+    &:checked {
+
+      &~nav {
+        transform: scaleY(1);
+      }
+
+      &~.hamburger-toggle span {
+        width: 0;
+        transition-duration: 0.2s;
+
+        &::before, &::after {
+          margin-top: 0px;
+          transition-duration: 0.2s;
+        }
+
+        &::before {
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+
+        &:after {
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+  .group-list a {
+    padding-left: 2rem;
+    background: #252525;
+    box-shadow: inset 0 -1px #373737;
+
+    &:focus, &:hover {
+      background: #131313;
+    }
+  }
+  /* Using this reversed logic makes me not have to set the original values a
+      second time once unchecked */
+  nav input[type="checkbox"] {
+
+    &:not(:checked)+label+ul>li>a {
+      height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      font-size: 0;
+    }
+
+    &+label>.fa-angle-right {
+      float: right;
+      transition: -webkit-transform 0.2s;
+      transition: transform 0.2s;
+      transition: transform 0.2s, -webkit-transform 0.2s;
+    }
+    
+    &:checked+label>.fa-angle-right {
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.banner {
+  text-align: center;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.listing {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+#b1 {
+  background-image: url("../Content/backdrop-1.jpg");
+  background-position: center top;
+}
+
+#b2 {
+  background-image: url("../Content/backdrop-2.jpg");
+  background-position: center top;
+}
+
+#b3 {
+  background-image: url("../Content/backdrop-3.jpg");
+  background-position: center top;
+}
+
+#b4 {
+  background-image: url("../Content/backdrop-4.jpg");
+  background-position: center top;
+}
+
+#b5 {
+  background-image: url("../Content/backdrop-5.jpg");
+  background-position: right bottom;
+}
+
+#b6 {
+  background-image: url("../Content/backdrop-6.jpg");
+  background-position: center top;
+}
+
+#b7 {
+  background-image: url("../Content/backdrop-7.jpg");
+  background-position: center top;
+}
+
+#b8 {
+  background-image: url("../Content/backdrop-8.jpg");
+  background-position: center top;
+}
+
+#b9 {
+  background-image: url("../Content/backdrop-9.jpg");
+  background-position: center top;
+}
+
+.plate {
+  padding: 10rem 0;
+  text-align: center;
+}
+
+#seattle-sessions {
+  color: rgb(255, 255, 255);
+  background-color: rgb(87, 87, 87);
+}
+
+#thunder {
+  color: rgb(245, 211, 223);
+  background-color: rgb(93, 163, 192);
+}
+
+#everywhere-is-somewhere {
+  color: rgb(255, 255, 255);
+  background-color: rgb(175, 50, 55);
+}
+
+#fml {
+  color: rgb(125, 205, 196);
+  background-color: rgb(248, 238, 107);
+}
+
+#life-as-a-dog {
+  color: rgb(251, 191, 151);
+  background-color: rgb(242, 137, 100);
+}
+
+#what-if-it-is {
+  color: rgb(26, 250, 137);
+  background-color: rgb(249, 249, 249);
+}
+
+#west-ghost {
+  color: rgb(0, 0, 0);
+  background-color: rgb(237, 0, 140);
+}
+
+#eyes-shut {
+  color: rgb(234, 234, 234);
+  background-color: rgb(173, 123, 135);
+}
+
+#i-stopped-caring-in-96 {
+  color: rgb(232, 75, 123);
+  background-color: rgb(248, 248, 237);
+}
+
+#k-flay {
+  color: rgb(255, 255, 255);
+  background-color: rgb(143, 173, 142);
+}
+
+#single-and-famous {
+  color: rgb(252, 1, 1);
+  background-color: rgb(228, 228, 228);
+}
+
+#k-flay-presents-mashed-potatoes {
+  color: rgb(242, 229, 74);
+  background-color: rgb(79, 193, 185);
+}
+
+.artwork {
+  float: right;
+  width: 50%;
+}
+
+.artwork>img {
+  width: 100%;
+}
+
+.text {
+  text-align: center;
+  width: 50%;
+  float: left;
+}
