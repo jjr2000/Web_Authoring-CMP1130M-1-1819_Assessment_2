@@ -1,123 +1,133 @@
-$('body').on('click', '.hamburger-toggle', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    if ($('.hamburger-menu').is(":checked")) {
-        hideMenuIfVisible();
-    } else {
-        $('.hamburger-menu').prop('checked', true);
-        $('html').on('click', hideMenuIfVisible);
-        $('nav').on('click', navClick);
+$(function () {
+    $('body').on('click', '.hamburger-toggle', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if ($('.hamburger-menu').is(":checked")) {
+            hideMenuIfVisible();
+        } else {
+            $('.hamburger-menu').prop('checked', true);
+            $('html').on('click', hideMenuIfVisible);
+            $('nav').on('click', navClick);
+        }
+    })
+
+    $('body').on('change', '.category', function () {
+        if (this.checked)
+            $(this).parent().siblings().find('.category').prop('checked', false);
+    });
+
+    $('body').on('click', 'nav a', function () {
+        alert('clicked');
+    });
+
+    function hideMenuIfVisible() {
+        if ($('.hamburger-menu').is(":checked")) {
+            $('.hamburger-menu, nav input[type="checkbox"]').prop('checked', false);
+            $('html').off('click', hideMenuIfVisible);
+            $('nav').off('click', navClick);
+        }
     }
-})
-
-$('body').on('change', '.category', function () {
-    if (this.checked)
-        $(this).parent().siblings().find('.category').prop('checked', false);
-});
-
-$('body').on('click', 'nav a', function () {
-    alert('clicked');
-});
-
-function hideMenuIfVisible() {
-    if ($('.hamburger-menu').is(":checked")) {
-        $('.hamburger-menu, nav input[type="checkbox"]').prop('checked', false);
-        $('html').off('click', hideMenuIfVisible);
-        $('nav').off('click', navClick);
+    function navClick(e) {
+        e.stopPropagation();
+        var target = $(e.target)
+        if (target.is('a[href^="#"]')) {
+            hideMenuIfVisible()
+            $('html, body').animate({
+                scrollTop: $(target.attr('href')).offset().top - $('#header').outerHeight()
+            }, 500);
+        }
     }
-}
-function navClick(e) {
-    e.stopPropagation();
-    var target = $(e.target)
-    if (target.is('a[href^="#"]')) {
-        hideMenuIfVisible()
-        $('html, body').animate({
-            scrollTop: $(target.attr('href')).offset().top - $('#header').outerHeight()
-        }, 500);
+
+
+
+    var currentSection;
+    var sections = $('[data-music]');
+
+    //preload
+    for (var index = 0; index < sections.length; index++) {
+        new Howl({
+            preload: index === 0,
+            src: "Content/music/" + $(sections[index]).data('music'),
+            loop: true,
+            volume: 0,
+            autoplay: false,
+            pos: 0,
+            onfade: function (id) {
+                if (this._volume === 0)
+                    this.pause();
+            }
+        });
     }
-}
 
-
-
-var sections = $('[data-music]');
-
-//preload
-for (var index = 0; index < sections.length; index++) {
-    new Howl({
-        preload: true,
-        src: "Content/music/" + $(sections[index]).data('music'),
-        loop: true,
-        volume: 0,
-        autoplay: false,
-        pos: 0,
-        onfade: function (id) {
-            if (this._volume === 0)
-                this.pause();
+    $.each(Howler._howls, function (key, howl) {
+        if (key !== 0) {
+            setTimeout(function () {
+                howl.load();
+            }, 1);
         }
     });
-}
 
-function audioScroll(e) {
-    //alert($(document).scrollTop());
-    var scrollPos = $(document).scrollTop() + $('#header').outerHeight()
+    function audioScroll(e) {
+        //alert($(document).scrollTop());
+        var scrollPos = $(document).scrollTop() + $('#header').outerHeight() + 2;
 
-    var success = false;
-    for (var index = 0; index < sections.length; index++) {
-        var element = $(sections[index]);
-        if (scrollPos >= element.offset().top && scrollPos < (element.offset().top + element.outerHeight())) {
-            success = true;
-            if (currentSection !== index) {
-                currentSection = index;
-                $.each(Howler._howls, function (key, howl) {
-                    if (key === index) {
-                        existingHowl = true;
-                        if (howl._volume !== 1)
-                            howl.fade(howl._volume, 1, 500 * (1 - howl._volume))
-                        if (howl._sounds[0] && howl._sounds[0]._paused) {
-                            howl.play();
-                        }
-                    } else {
-                        if (howl._volume !== 0)
-                            howl.fade(howl._volume, 0, 500 * howl._volume);
-                    }
-                });
-
-                if (!existingHowl) {
-                    var newClip = new Howl({
-                        preload: true,
-                        src: "Content/music/" + element.data('music'),
-                        loop: true,
-                        volume: 0,
-                        autoplay: false,
-                        pos: 0,
-                        onfade: function (id) {
-                            if (this._volume === 0)
-                                this.pause();
+        var success = false;
+        for (var index = 0; index < sections.length; index++) {
+            var element = $(sections[index]);
+            if (scrollPos >= element.offset().top && scrollPos < (element.offset().top + element.outerHeight())) {
+                success = true;
+                if (currentSection !== index) {
+                    currentSection = index;
+                    $.each(Howler._howls, function (key, howl) {
+                        if (key === index) {
+                            existingHowl = true;
+                            if (howl._volume !== 1)
+                                howl.fade(howl._volume, 1, 500 * (1 - howl._volume))
+                            if (howl._sounds[0] && howl._sounds[0]._paused) {
+                                howl.play();
+                            }
+                        } else {
+                            if (howl._volume !== 0)
+                                howl.fade(howl._volume, 0, 500 * howl._volume);
                         }
                     });
-                    newClip.fade(0, 1, 500);
-                    newClip.play();
+
+                    if (!existingHowl) {
+                        var newClip = new Howl({
+                            preload: true,
+                            src: "Content/music/" + element.data('music'),
+                            loop: true,
+                            volume: 0,
+                            autoplay: false,
+                            pos: 0,
+                            onfade: function (id) {
+                                if (this._volume === 0)
+                                    this.pause();
+                            }
+                        });
+                        newClip.fade(0, 1, 500);
+                        newClip.play();
+                    }
                 }
+                break;
             }
-            break;
         }
-    }
-    if (!success && currentSection !== -1) {
-        currentSection = -1;
-        if (Howler.state = "running") {
-            $.each(Howler._howls, function (key, howl) {
-                if (howl._volume !== 0)
-                    howl.fade(howl._volume, 0, 5000 * howl._volume);
-            });
+        if (!success && currentSection !== -1) {
+            currentSection = -1;
+            if (Howler.state = "running") {
+                $.each(Howler._howls, function (key, howl) {
+                    if (howl._volume !== 0)
+                        howl.fade(howl._volume, 0, 5000 * howl._volume);
+                });
+            }
         }
+
     }
 
-}
+    //audioScroll();
+    document.addEventListener('scroll', audioScroll);
 
-audioScroll();
-document.addEventListener('scroll', audioScroll);
-
-
+});
 
 //Three js shoe loader
 
