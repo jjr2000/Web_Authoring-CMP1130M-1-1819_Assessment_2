@@ -1,4 +1,11 @@
 $(function () {
+    $('body').on('click', '#enter', function (e) {
+        $("#entry").fadeOut(500);
+        $("#site").fadeIn(500, function(){
+            audioScroll();
+        });
+    })
+
     $('body').on('click', '.hamburger-toggle', function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -125,8 +132,9 @@ $(function () {
     }
 
     //audioScroll();
-    document.addEventListener('scroll', audioScroll);
-
+    setTimeout(function () {
+        document.addEventListener('scroll', audioScroll);
+    }, 500);
 });
 
 //Three js shoe loader
