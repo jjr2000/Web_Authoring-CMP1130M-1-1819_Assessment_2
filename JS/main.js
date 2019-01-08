@@ -29,18 +29,93 @@ function hideMenuIfVisible() {
 function navClick(e) {
     e.stopPropagation();
     var target = $(e.target)
-    if(target.is('a[href^="#"]'))
-    {
+    if (target.is('a[href^="#"]')) {
         hideMenuIfVisible()
         $('html, body').animate({
             scrollTop: $(target.attr('href')).offset().top - $('#header').outerHeight()
-        },500);
+        }, 500);
     }
 }
 
 
 
+var sections = $('[data-music]');
 
+//preload
+for (var index = 0; index < sections.length; index++) {
+    new Howl({
+        preload: true,
+        src: "Content/music/" + $(sections[index]).data('music'),
+        loop: true,
+        volume: 0,
+        autoplay: false,
+        pos: 0,
+        onfade: function (id) {
+            if (this._volume === 0)
+                this.pause();
+        }
+    });
+}
+
+function audioScroll(e) {
+    //alert($(document).scrollTop());
+    var scrollPos = $(document).scrollTop() + $('#header').outerHeight()
+
+    var success = false;
+    for (var index = 0; index < sections.length; index++) {
+        var element = $(sections[index]);
+        if (scrollPos >= element.offset().top && scrollPos < (element.offset().top + element.outerHeight())) {
+            success = true;
+            if (currentSection !== index) {
+                currentSection = index;
+                $.each(Howler._howls, function (key, howl) {
+                    if (key === index) {
+                        existingHowl = true;
+                        if (howl._volume !== 1)
+                            howl.fade(howl._volume, 1, 500 * (1 - howl._volume))
+                        if (howl._sounds[0] && howl._sounds[0]._paused) {
+                            howl.play();
+                        }
+                    } else {
+                        if (howl._volume !== 0)
+                            howl.fade(howl._volume, 0, 500 * howl._volume);
+                    }
+                });
+
+                if (!existingHowl) {
+                    var newClip = new Howl({
+                        preload: true,
+                        src: "Content/music/" + element.data('music'),
+                        loop: true,
+                        volume: 0,
+                        autoplay: false,
+                        pos: 0,
+                        onfade: function (id) {
+                            if (this._volume === 0)
+                                this.pause();
+                        }
+                    });
+                    newClip.fade(0, 1, 500);
+                    newClip.play();
+                }
+            }
+            break;
+        }
+    }
+    if (!success && currentSection !== -1) {
+        currentSection = -1;
+        if (Howler.state = "running") {
+            $.each(Howler._howls, function (key, howl) {
+                if (howl._volume !== 0)
+                    howl.fade(howl._volume, 0, 5000 * howl._volume);
+            });
+        }
+    }
+
+}
+
+audioScroll();
+document.addEventListener('scroll', audioScroll);
 
 
 
@@ -88,7 +163,7 @@ function navClick(e) {
 //                     scene.add(object);
 //                 }, onProgress, onError);
 //          });
-    
+
 //     renderer = new THREE.WebGLRenderer();
 //     renderer.setPixelRatio(window.devicePixelRatio);
 //     renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
