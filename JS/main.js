@@ -50,10 +50,10 @@ $(function () {
     var currentSection;
     var sections = $('[data-music]');
 
-    //Generate howls
+    // Generate howls
     for (var index = 0; index < sections.length; index++) {
         new Howl({
-            //Auto load the first howls media since it will be the first to need playing
+            // Auto load the first howls media since it will be the first to need playing
             preload: index === 0,
             src: "Content/music/" + $(sections[index]).data('music'),
             loop: true,
@@ -61,6 +61,7 @@ $(function () {
             autoplay: false,
             pos: 0,
             onfade: function (id) {
+                // If the track is faded out it will reach volume 0, then pauise as to not loose track position.
                 if (this._volume === 0)
                 {
                     this.pause();
@@ -70,7 +71,6 @@ $(function () {
     }
 
     function audioScroll(e) {
-        //alert($(document).scrollTop());
         var scrollPos = $(document).scrollTop() + $('#header').outerHeight() + 2;
 
         var success = false;
