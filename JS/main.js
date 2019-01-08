@@ -50,9 +50,10 @@ $(function () {
     var currentSection;
     var sections = $('[data-music]');
 
-    //preload
+    //Generate howls
     for (var index = 0; index < sections.length; index++) {
         new Howl({
+            //Auto load the first howls media since it will be the first to need playing
             preload: index === 0,
             src: "Content/music/" + $(sections[index]).data('music'),
             loop: true,
@@ -61,18 +62,12 @@ $(function () {
             pos: 0,
             onfade: function (id) {
                 if (this._volume === 0)
+                {
                     this.pause();
+                }
             }
         });
     }
-
-    $.each(Howler._howls, function (key, howl) {
-        if (key !== 0) {
-            setTimeout(function () {
-                howl.load();
-            }, 1);
-        }
-    });
 
     function audioScroll(e) {
         //alert($(document).scrollTop());
@@ -87,34 +82,24 @@ $(function () {
                     currentSection = index;
                     $.each(Howler._howls, function (key, howl) {
                         if (key === index) {
-                            existingHowl = true;
+                            if(howl._state === "unloaded")
+                                howl.load();
                             if (howl._volume !== 1)
                                 howl.fade(howl._volume, 1, 500 * (1 - howl._volume))
                             if (howl._sounds[0] && howl._sounds[0]._paused) {
                                 howl.play();
                             }
                         } else {
+                            // Load the next howl before scrolling to it.
+                            // Doing this should allow tracks to be loaded only just before they are needed
+                            // Saving bandwidth and improving speed.
+                            if (key === index + 1 && howl._state === "unloaded")
+                                howl.load();
                             if (howl._volume !== 0)
                                 howl.fade(howl._volume, 0, 500 * howl._volume);
                         }
                     });
 
-                    if (!existingHowl) {
-                        var newClip = new Howl({
-                            preload: true,
-                            src: "Content/music/" + element.data('music'),
-                            loop: true,
-                            volume: 0,
-                            autoplay: false,
-                            pos: 0,
-                            onfade: function (id) {
-                                if (this._volume === 0)
-                                    this.pause();
-                            }
-                        });
-                        newClip.fade(0, 1, 500);
-                        newClip.play();
-                    }
                 }
                 break;
             }
