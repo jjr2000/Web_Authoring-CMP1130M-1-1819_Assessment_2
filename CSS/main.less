@@ -9,7 +9,7 @@ body {
   display: table;
 }
 
-.container {
+.container, section#header .container {
   box-sizing: border-box;
   max-width: 60rem;
   width: 100%;
@@ -25,11 +25,9 @@ section#header {
   top: 0;
   z-index: 1;
   opacity: 0.8;
-
   img {
     height: 2rem;
   }
-
   .container {
     position: relative;
   }
@@ -38,7 +36,6 @@ section#header {
 .hamburger-nav {
   position: relative;
   float: right;
-
   nav {
     position: absolute;
     top: 3rem;
@@ -55,7 +52,6 @@ section#header {
     transition: transform 0.2s ease-in-out;
     -moz-transition: transform 0.2s ease-in-out;
     -webkit-transition: transform 0.2s ease-in-out;
-
     a, label {
       font-size: 1.5rem;
       height: 1.7rem;
@@ -71,20 +67,17 @@ section#header {
       -webkit-transition: all 0.2s ease-in-out;
       text-decoration: none;
       cursor: pointer;
-
       &:focus, &:hover {
         color: rgba(255, 255, 255, 0.5);
         background: #030303;
       }
     }
   }
-
   ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
   }
-
   .hamburger-toggle {
     position: absolute;
     top: 5px;
@@ -93,7 +86,6 @@ section#header {
     cursor: pointer;
     height: 21px;
     width: 25px;
-
     span {
       display: block;
       top: 8px;
@@ -104,7 +96,6 @@ section#header {
       position: relative;
       transition-duration: 0.2s;
       transition-delay: 0s;
-
       &::before, &::after {
         display: block;
         content: "";
@@ -116,40 +107,31 @@ section#header {
         transition-duration: 0.2s;
         transition-delay: 0s;
       }
-
       &::before {
         margin-top: -8px;
       }
-
       &::after {
         margin-top: 8px;
       }
     }
   }
-
   .hamburger-menu {
     display: none;
-
     &:checked {
-
       &~nav {
         transform: scaleY(1);
       }
-
       &~.hamburger-toggle span {
         width: 0;
         transition-duration: 0.2s;
-
         &::before, &::after {
           margin-top: 0px;
           transition-duration: 0.2s;
         }
-
         &::before {
           -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
         }
-
         &:after {
           -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -161,7 +143,6 @@ section#header {
     padding-left: 2rem;
     background: #252525;
     box-shadow: inset 0 -1px #373737;
-
     &:focus, &:hover {
       background: #131313;
     }
@@ -169,21 +150,18 @@ section#header {
   /* Using this reversed logic makes me not have to set the original values a
       second time once unchecked */
   nav input[type="checkbox"] {
-
     &:not(:checked)+label+ul>li>a {
       height: 0;
       padding-top: 0;
       padding-bottom: 0;
       font-size: 0;
     }
-
     &+label>.fa-angle-right {
       float: right;
       transition: -webkit-transform 0.2s;
       transition: transform 0.2s;
       transition: transform 0.2s, -webkit-transform 0.2s;
     }
-    
     &:checked+label>.fa-angle-right {
       -webkit-transform: rotate(90deg);
       transform: rotate(90deg);
@@ -326,6 +304,75 @@ section#header {
 
 .text {
   text-align: center;
-  width: 50%;
-  float: left;
+}
+
+.single {
+  .listing{
+    position: relative;
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 50%;
+      transform: translateY(-50%);
+      h1{
+        font-size: 2.5rem;
+      }
+      h2{
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+.multi{
+  .text{
+    width: 50%;
+    float: left;
+    h1{
+      font-size: 2rem;
+      margin-bottom: 0;
+    }
+    h2{
+      font-size: 2.5rem;
+      margin-top: 0.2rem;
+    }
+    ol{
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container{
+    padding: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .artwork {
+    float: none;
+    width: 100%;
+  }
+
+  .single {
+    .listing{
+      position: relative;
+      .text {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+      }
+    }
+  }
+  
+  .multi{
+    .text{
+      width: 100%;
+      float: none;
+    }
+  }
 }
