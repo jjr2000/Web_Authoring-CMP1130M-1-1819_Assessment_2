@@ -98,6 +98,10 @@ section#header {
   position: relative;
   float: right;
   nav {
+    //This helps to deal with phones turned sideways and other really short devices
+    overflow-y: auto;
+    max-height: 70vh;
+    
     position: absolute;
     top: 3rem;
     margin-top: 3px;
