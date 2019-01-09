@@ -1,13 +1,12 @@
 Howler.autoUnlock = false;
 
-if(localStorage.getItem('mute') === 'true')
-{
-    Howler.mute(true);
-    $('#mute').addClass('muted');
-}
-
-
 $(function () {
+    if(localStorage.getItem('mute') === 'true')
+    {
+        Howler.mute(true);
+        $('#mute').addClass('muted');
+    }
+
     $('body').on('click', '#enter', function (e) {
         $("#entry").fadeOut(500);
         $("#site").fadeIn(500, function () {
