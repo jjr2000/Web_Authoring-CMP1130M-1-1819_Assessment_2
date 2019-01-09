@@ -1,5 +1,6 @@
 body {
-  background-color: black;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
   font-family: 'Amatic SC', cursive;
 }
 
@@ -11,8 +12,7 @@ section#entry {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: black;
-  color: white;
+  background-color: rgb(0, 0, 0);
   &:before {
     opacity: 0.3;
     z-index: -1;
@@ -30,21 +30,21 @@ section#entry {
   #enter {
     cursor: pointer;
     font-size: 4rem;
-    background-color: black;
-    color: white;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     border: none;
     &:hover {
-      background-color: white;
-      color: black;
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
     }
   }
 }
 
 section#control #mute {
+  color: rgb(255, 255, 255);
   position: fixed;
   bottom: 1em;
   right: 1em;
-  color: white;
   .fa-volume-mute {
     display: none;
     padding-right: 2px;
@@ -79,8 +79,7 @@ section#site {
 }
 
 section#header {
-  color: white;
-  background: black;
+  background: rgb(0, 0, 0);
   padding: 1rem 0;
   position: sticky;
   top: 0;
@@ -114,13 +113,13 @@ section#header {
     -moz-transition: transform 0.2s ease-in-out;
     -webkit-transition: transform 0.2s ease-in-out;
     a, label {
+      color: rgb(255, 255, 255);
       font-size: 1.5rem;
       height: 1.7rem;
       display: block;
       padding: 0.85rem;
-      color: #fff;
-      background-color: #151515;
-      box-shadow: inset 0 -1px #1d1d1d;
+      background-color: rgb(21, 21, 21);
+      box-shadow: inset 0 -1px rgb(29, 29, 29);
       /* Applying the transition affect to all due to using 4 seperate properties
           to get the slide affect to work properly */
       transition: all 0.2s ease-in-out;
@@ -130,7 +129,7 @@ section#header {
       cursor: pointer;
       &:focus, &:hover {
         color: rgba(255, 255, 255, 0.5);
-        background: #030303;
+        background: rgb(3, 3, 3);
       }
     }
   }
@@ -152,7 +151,7 @@ section#header {
       top: 8px;
       width: 25px;
       height: 5px;
-      background-color: #fff;
+      background-color: rgb(255, 255, 255);
       border-radius: 2px;
       position: relative;
       transition-duration: 0.2s;
@@ -163,7 +162,7 @@ section#header {
         position: absolute;
         width: 25px;
         height: 5px;
-        background-color: #fff;
+        background-color: rgb(255, 255, 255);
         border-radius: 2px;
         transition-duration: 0.2s;
         transition-delay: 0s;
@@ -202,10 +201,10 @@ section#header {
   }
   .group-list a {
     padding-left: 2rem;
-    background: #252525;
-    box-shadow: inset 0 -1px #373737;
+    background: rgb(37, 37, 37);
+    box-shadow: inset 0 -1px rgb(55, 55, 55);
     &:focus, &:hover {
-      background: #131313;
+      background: rgb(19, 19, 19);
     }
   }
   /* Using this reversed logic makes me not have to set the original values a
@@ -292,6 +291,7 @@ section#header {
 .plate {
   padding: 10rem 0;
   text-align: center;
+  color: black;
 }
 
 #seattle-sessions {
@@ -405,6 +405,52 @@ section#header {
   }
 }
 
+section#customizer{
+  text-align: center;
+
+  #shoe-container{
+    float:left;
+    box-sizing: border-box;
+    padding: 0 0.5rem;
+    width: 50%;
+
+    #shoe{
+      background-color: rgb(232, 232, 232);
+      width: 100%;
+
+      img{
+        width: 100%;
+      }
+
+      h1{
+        color: black;
+        margin: 0;
+        padding-bottom: 1rem;
+      }
+    }
+  }
+
+  #albums-container{
+    float: right;
+    box-sizing: border-box;
+    padding: 0 0.5rem;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .album-container{
+      flex: 0 0 25%;
+      max-width: 25%;
+      padding: 0 0.5rem 1rem 0.5rem;
+      box-sizing: border-box;
+        img{
+          width: 100%;
+          cursor: pointer;
+        }
+    }
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .hamburger-nav nav {
     position: fixed;
@@ -441,4 +487,22 @@ section#header {
       float: none;
     }
   }
+
+  section#customizer{
+    .container{
+      padding: 0 10px;
+    }
+
+    #shoe-container{
+      float: none;
+      width: 100%;
+    }
+  
+    #albums-container{
+      padding: 1rem 0 0 0;
+      float: none;
+      width: 100%;
+    }
+  }
+
 }

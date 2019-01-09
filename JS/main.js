@@ -1,5 +1,12 @@
 Howler.autoUnlock = false;
 
+if(localStorage.getItem('mute') === 'true')
+{
+    Howler.mute(true);
+    $('#mute').addClass('muted');
+}
+
+
 $(function () {
     $('body').on('click', '#enter', function (e) {
         $("#entry").fadeOut(500);
@@ -12,6 +19,7 @@ $(function () {
         e.preventDefault();
         var that = $(this);
         Howler.mute(!that.hasClass('muted'));
+        localStorage.setItem('mute', !that.hasClass('muted'))
         that.toggleClass('muted');
     })
 
@@ -55,6 +63,15 @@ $(function () {
     }
 
 
+    $('body').on('click', '[data-shoe]', function(e){
+        var that = $(this);
+        $('#shoe img').attr('src', 'Content/shoes/' + that.data('shoe'));
+        $('#shoe h1').text(that.data('title'));
+        localStorage.setItem('shoe', that.data('shoe'))
+    });
+
+    if(localStorage.getItem('shoe'))
+        $('[data-shoe="'+localStorage.getItem('shoe')+'"]').click();
 
     var currentSection;
     var sections = $('[data-music]');
@@ -116,7 +133,7 @@ $(function () {
             if (Howler.state = "running") {
                 $.each(Howler._howls, function (key, howl) {
                     if (howl._volume !== 0)
-                        howl.fade(howl._volume, 0, 5000 * howl._volume);
+                        howl.fade(howl._volume, 0, 500 * howl._volume);
                 });
             }
         }
