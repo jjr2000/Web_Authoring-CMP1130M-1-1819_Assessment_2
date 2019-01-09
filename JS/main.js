@@ -1,7 +1,7 @@
 $(function () {
     $('body').on('click', '#enter', function (e) {
         $("#entry").fadeOut(500);
-        $("#site").fadeIn(500, function(){
+        $("#site").fadeIn(500, function () {
             audioScroll();
         });
     })
@@ -62,8 +62,7 @@ $(function () {
             pos: 0,
             onfade: function (id) {
                 // If the track is faded out it will reach volume 0, then pauise as to not loose track position.
-                if (this._volume === 0)
-                {
+                if (this._volume === 0) {
                     this.pause();
                 }
             }
@@ -82,7 +81,7 @@ $(function () {
                     currentSection = index;
                     $.each(Howler._howls, function (key, howl) {
                         if (key === index) {
-                            if(howl._state === "unloaded")
+                            if (howl._state === "unloaded")
                                 howl.load();
                             if (howl._volume !== 1)
                                 howl.fade(howl._volume, 1, 500 * (1 - howl._volume))
@@ -117,10 +116,18 @@ $(function () {
     }
 
     //audioScroll();
-    setTimeout(function () {
-        document.addEventListener('scroll', audioScroll);
-    }, 500);
+    $(window).scrollEnd(audioScroll, 100);
 });
+
+$.fn.scrollEnd = function (callback, timeout) {
+    $(this).scroll(function () {
+        var $this = $(this);
+        if ($this.data('scrollTimeout')) {
+            clearTimeout($this.data('scrollTimeout'));
+        }
+        $this.data('scrollTimeout', setTimeout(callback, timeout));
+    });
+};
 
 //Three js shoe loader
 
