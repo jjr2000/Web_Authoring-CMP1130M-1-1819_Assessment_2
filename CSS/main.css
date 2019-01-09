@@ -1,5 +1,4 @@
 body {
-  min-height: 30rem;
   color: #ffffff;
   background-color: #000000;
   font-family: 'Amatic SC', cursive;
@@ -7,7 +6,8 @@ body {
 section#entry {
   padding: 3em 1em;
   text-align: center;
-  position: fixed;
+  z-index: -2;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
