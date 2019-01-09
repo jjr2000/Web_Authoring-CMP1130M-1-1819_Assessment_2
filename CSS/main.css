@@ -100,7 +100,7 @@ section#header .container {
   width: 300px;
   overflow: hidden;
   overflow-y: auto;
-  max-height: 70vh;
+  max-height: 72vh;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
   /* This will make a nice slide down affect for the main nav,
         using a tranform works well in this case due to the floating
