@@ -3,7 +3,7 @@ body {
   font-family: 'Amatic SC', cursive;
 }
 
-section#entry{
+section#entry {
   padding: 3em 1em;
   text-align: center;
   position: fixed;
@@ -13,35 +13,54 @@ section#entry{
   right: 0;
   background-color: black;
   color: white;
-  #enter{
+  &:before {
+    opacity: 0.3;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: ' ';
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../Content/backdrop-1.jpg");
+    background-position: center top;
+  }
+  #enter {
     cursor: pointer;
     font-size: 4rem;
+    background-color: black;
+    color: white;
+    border: none;
+    &:hover {
+      background-color: white;
+      color: black;
+    }
   }
 }
 
-section#control #mute{
+section#control #mute {
   position: fixed;
   bottom: 1em;
   right: 1em;
   color: white;
-
-  .fa-volume-mute{
+  .fa-volume-mute {
     display: none;
     padding-right: 2px;
     padding-bottom: 1px;
   }
-
-  &.muted{
-    .fa-volume-mute{
+  &.muted {
+    .fa-volume-mute {
       display: block;
     }
-    .fa-volume-up{
+    .fa-volume-up {
       display: none;
     }
   }
 }
 
-section#site{
+section#site {
   display: none;
 }
 
@@ -349,7 +368,7 @@ section#header {
 }
 
 .single {
-  .listing{
+  .listing {
     position: relative;
     .text {
       position: absolute;
@@ -357,29 +376,29 @@ section#header {
       left: 0;
       right: 50%;
       transform: translateY(-50%);
-      h1{
+      h1 {
         font-size: 2.5rem;
       }
-      h2{
+      h2 {
         font-size: 3rem;
       }
     }
   }
 }
 
-.multi{
-  .text{
+.multi {
+  .text {
     width: 50%;
     float: left;
-    h1{
+    h1 {
       font-size: 2rem;
       margin-bottom: 0;
     }
-    h2{
+    h2 {
       font-size: 2.5rem;
       margin-top: 0.2rem;
     }
-    ol{
+    ol {
       font-size: 1.7rem;
       font-weight: bold;
     }
@@ -388,27 +407,24 @@ section#header {
 
 @media only screen and (max-width: 768px) {
   .hamburger-nav nav {
-      position: fixed;
-      top: 4rem;
-      margin-top: 3px;
-      right: 0;
-      left: 0;
-      width: auto;
+    position: fixed;
+    top: 4rem;
+    margin-top: 3px;
+    right: 0;
+    left: 0;
+    width: auto;
   }
-
-  .container{
+  .container {
     padding: 3rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
-
   .artwork {
     float: none;
     width: 100%;
   }
-
   .single {
-    .listing{
+    .listing {
       position: relative;
       .text {
         position: relative;
@@ -419,9 +435,8 @@ section#header {
       }
     }
   }
-  
-  .multi{
-    .text{
+  .multi {
+    .text {
       width: 100%;
       float: none;
     }

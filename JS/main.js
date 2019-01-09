@@ -1,3 +1,5 @@
+Howler.autoUnlock = false;
+
 $(function () {
     $('body').on('click', '#enter', function (e) {
         $("#entry").fadeOut(500);
@@ -63,7 +65,6 @@ $(function () {
             // Auto load the first howls media since it will be the first to need playing
             preload: index === 0,
             src: "Content/music/" + $(sections[index]).data('music'),
-            html5: true,
             loop: true,
             volume: 0,
             autoplay: false,

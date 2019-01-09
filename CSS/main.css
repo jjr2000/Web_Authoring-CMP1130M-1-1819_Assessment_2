@@ -13,9 +13,30 @@ section#entry {
   background-color: black;
   color: white;
 }
+section#entry:before {
+  opacity: 0.3;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: ' ';
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../Content/backdrop-1.jpg");
+  background-position: center top;
+}
 section#entry #enter {
   cursor: pointer;
   font-size: 4rem;
+  background-color: black;
+  color: white;
+  border: none;
+}
+section#entry #enter:hover {
+  background-color: white;
+  color: black;
 }
 section#control #mute {
   position: fixed;
