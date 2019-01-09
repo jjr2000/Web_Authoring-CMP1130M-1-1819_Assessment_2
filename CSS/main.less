@@ -14,11 +14,30 @@ section#entry{
   background-color: black;
   color: white;
   #enter{
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translateY(-50%), translateX(-50%);
+    cursor: pointer;
     font-size: 4rem;
+  }
+}
+
+section#control #mute{
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  color: white;
+
+  .fa-volume-mute{
+    display: none;
+    padding-right: 2px;
+    padding-bottom: 1px;
+  }
+
+  &.muted{
+    .fa-volume-mute{
+      display: block;
+    }
+    .fa-volume-up{
+      display: none;
+    }
   }
 }
 

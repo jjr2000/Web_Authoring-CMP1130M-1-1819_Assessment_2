@@ -6,6 +6,13 @@ $(function () {
         });
     })
 
+    $('body').on('click', '#mute', function (e) {
+        e.preventDefault();
+        var that = $(this);
+        Howler.mute(!that.hasClass('muted'));
+        that.toggleClass('muted');
+    })
+
     $('body').on('click', '.hamburger-toggle', function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -56,10 +63,10 @@ $(function () {
             // Auto load the first howls media since it will be the first to need playing
             preload: index === 0,
             src: "Content/music/" + $(sections[index]).data('music'),
+            html5: true,
             loop: true,
             volume: 0,
             autoplay: false,
-            pos: 0,
             onfade: function (id) {
                 // If the track is faded out it will reach volume 0, then pauise as to not loose track position.
                 if (this._volume === 0) {

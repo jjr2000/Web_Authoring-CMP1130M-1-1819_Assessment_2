@@ -14,7 +14,25 @@ section#entry {
   color: white;
 }
 section#entry #enter {
+  cursor: pointer;
   font-size: 4rem;
+}
+section#control #mute {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  color: white;
+}
+section#control #mute .fa-volume-mute {
+  display: none;
+  padding-right: 2px;
+  padding-bottom: 1px;
+}
+section#control #mute.muted .fa-volume-mute {
+  display: block;
+}
+section#control #mute.muted .fa-volume-up {
+  display: none;
 }
 section#site {
   display: none;
