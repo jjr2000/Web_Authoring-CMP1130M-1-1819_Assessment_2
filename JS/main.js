@@ -65,7 +65,7 @@ $(function () {
     $('body').on('click', '[data-shoe]', function(e){
         var that = $(this);
         $('#shoe img').attr('src', 'Content/shoes/' + that.data('shoe'));
-        $('#shoe h1').text(that.data('title'));
+        $('#shoe h1').text(that.attr('alt'));
         localStorage.setItem('shoe', that.data('shoe'))
     });
 
