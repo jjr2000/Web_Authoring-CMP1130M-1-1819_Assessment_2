@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>K.FLAY</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Including a high quality version of the favicon for devices that support it. -->
     <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
@@ -19,42 +20,47 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+    <!-- Sets browsers bars to be black where possible to better match the site theme -->
+    <meta name="msapplication-TileColor" content="#000000">
     <meta name="theme-color" content="#000000">
 
-    <!-- Load all libraries before loading site specific scripts and styles -->
+    <!-- Load all libraries before loading site specific scripts and styles. -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC%7CArchivo+Black" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script async defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0"
         crossorigin="anonymous"></script>
-
-    <!-- <script src="JS/three.js"></script>
-        <script async defer src="JS/MTLLoader.js"></script>
-        <script async defer src="JS/OBJLoader.js"></script>
-        <script async defer src="JS/OrbitControls.js"></script> -->
     <script src="JS/howler.core.js"></script>
 
-    <!-- This is a reset stylesheet to get a level starting point between browsers -->
+    <!-- This is a reset stylesheet to get a level starting point between browsers. -->
     <link rel="stylesheet" type="text/css" media="screen" href="CSS/normalize.css" />
 
+    <!-- Load site specific styles and scripts last so that these take priority
+            and have all dependancies loaded. -->
     <link rel="stylesheet" type="text/css" media="screen" href="CSS/main.css" />
     <script async defer src="JS/main.js"></script>
 </head>
 
 <body>
     <section id="entry">
+        <!-- This is placed in a h2 to help search engines build a site map and to comply to the w3c specifications -->
         <h2><img src="./Content/logo.png" alt="K.Flay logo" /></h2>
         <p><b><i class="fas fa-exclamation-triangle"></i> &nbsp;&nbsp; Warning &nbsp;&nbsp; <i class="fas fa-exclamation-triangle"></i></b></p>
         <p><b><i class="fas fa-music"></i> &nbsp;&nbsp; This site contains music &nbsp;&nbsp; <i class="fas fa-music"></i></b></p>
         <p><b><i class="fas fa-volume-down"></i> &nbsp;&nbsp; Make sure your volume is turned up &nbsp;&nbsp; <i class="fas fa-volume-up"></i></b></p>
-        <button id="enter">Enter<br />I Need Noise!</button>
+        <!-- Using entry button get round the fact you need a user interaction to play audio. -->
+        <button id="enter">Enter.<br />I Need Noise!</button>
     </section>
     <section id="control">
         <h2>
-            <span class="hidden">Mute Controls</span><a href="#" id="mute"><i class="fas fa-volume-up" title="mute"></i><i
-                    class="fas fa-volume-mute" title="un-mute"></i></a>
+            <!-- Hidden content is needed in this h2 for search engines to be able to read what the section is for
+                    as for the rest of the hidden h2's -->
+            <span class="hidden">Mute Controls</span>
+            <a href="#" id="mute">
+                <i class="fas fa-volume-up" title="mute"></i>
+                <i class="fas fa-volume-mute" title="un-mute"></i>
+            </a>
         </h2>
     </section>
     <section id="site">
@@ -63,13 +69,13 @@
             <div class="container">
                 <h2><img src="./Content/logo.png" alt="K.Flay logo" /></h2>
 
+                <!-- Begin Menu -->
                 <section class="hamburger-nav">
                     <h2 class="hidden">Navigation Menu</h2>
                     <input type="checkbox" class="hamburger-menu" />
                     <label class="hamburger-toggle">
                         <span></span>
                     </label>
-
                     <nav>
                         <ul>
                             <li>
@@ -105,19 +111,22 @@
                             <li>
                                 <a href="#customizer">Merch</a>
                             </li>
+                            <li>
+                                    <a href="#demo">Demo</a>
+                                </li>
                         </ul>
                     </nav>
                 </section>
-
+                <!-- End Menu -->
             </div>
         </section>
 
         <section id="2018" class="year">
             <h2 class="hidden">2018</h2>
             <div id="b1" class="banner" data-music="BloodInTheCutSeattle.mp3">
-                <span class="fa-layers fa-fw fa-6x plate">
-                    <i class="fas fa-square-full" data-fa-transform="rotate-45"></i>
-                    <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2018</span>
+                <span class="fa-layers fa-fw fa-4x plate">
+                    <i class="fas fa-square-full" data-fa-transform="rotate-45 grow-10"></i>
+                    <span class="fa-layers-text fa-inverse" style="font-weight:900">2018</span>
                 </span>
             </div>
             <section id="seattle-sessions" class="multi" data-music="HighEnoughSeattle.mp3">
@@ -142,9 +151,9 @@
         <section id="2017" class="year">
             <h2 class="hidden">2017</h2>
             <div id="b2" class="banner" data-music="HollywoodForever.mp3">
-                <span class="fa-layers fa-fw fa-6x plate">
-                    <i class="fas fa-square-full" data-fa-transform="rotate-45"></i>
-                    <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2017</span>
+                <span class="fa-layers fa-fw fa-4x plate">
+                    <i class="fas fa-square-full" data-fa-transform="rotate-45 grow-10"></i>
+                    <span class="fa-layers-text fa-inverse" style="font-weight:900">2017</span>
                 </span>
             </div>
             <section id="thunder" class="single" data-music="Thunder.mp3">
@@ -201,9 +210,9 @@
         <section id="2016" class="year">
             <h2 class="hidden">2016</h2>
             <div id="b3" class="banner" data-music="Dreamers.mp3">
-                <span class="fa-layers fa-fw fa-6x plate">
-                    <i class="fas fa-square-full" data-fa-transform="rotate-45"></i>
-                    <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2016</span>
+                <span class="fa-layers fa-fw fa-4x plate">
+                    <i class="fas fa-square-full" data-fa-transform="rotate-45 grow-10"></i>
+                    <span class="fa-layers-text fa-inverse" style="font-weight:900">2016</span>
                 </span>
             </div>
             <section id="fml" class="single" data-music="FML.mp3">
@@ -221,9 +230,9 @@
         <section id="2014" class="year">
             <h2 class="hidden">2014</h2>
             <div id="b4" class="banner" data-music="CantSleep.mp3">
-                <span class="fa-layers fa-fw fa-6x plate">
-                    <i class="fas fa-square-full" data-fa-transform="rotate-45"></i>
-                    <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2014</span>
+                <span class="fa-layers fa-fw fa-4x plate">
+                    <i class="fas fa-square-full" data-fa-transform="rotate-45 grow-10"></i>
+                    <span class="fa-layers-text fa-inverse" style="font-weight:900">2014</span>
                 </span>
             </div>
             <section id="life-as-a-dog" class="multi" data-music="MakeMeFade.mp3">
@@ -254,9 +263,9 @@
         <section id="2013" class="year">
             <h2 class="hidden">2013</h2>
             <div id="b5" class="banner" data-music="TheCops.mp3">
-                <span class="fa-layers fa-fw fa-7x plate">
-                    <i class="fas fa-square-full" data-fa-transform="rotate-45"></i>
-                    <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2013</span>
+                <span class="fa-layers fa-fw fa-4x plate">
+                    <i class="fas fa-square-full" data-fa-transform="rotate-45 grow-10"></i>
+                    <span class="fa-layers-text fa-inverse" style="font-weight:900">2013</span>
                 </span>
             </div>
             <section id="what-if-it-is" class="multi" data-music="Rawks.mp3">
@@ -303,9 +312,9 @@
         <section id="2012" class="year">
             <h2 class="hidden">2012</h2>
             <div id="b6" class="banner" data-music="SunBurn.mp3">
-                <span class="fa-layers fa-fw fa-7x plate">
-                    <i class="fas fa-square-full" data-fa-transform="rotate-45"></i>
-                    <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2012</span>
+                <span class="fa-layers fa-fw fa-4x plate">
+                    <i class="fas fa-square-full" data-fa-transform="rotate-45 grow-10"></i>
+                    <span class="fa-layers-text fa-inverse" style="font-weight:900">2012</span>
                 </span>
             </div>
             <section id="eyes-shut" class="multi" data-music="EasyFix.mp3">
@@ -330,9 +339,9 @@
         <section id="2011" class="year">
             <h2 class="hidden">2011</h2>
             <div id="b7" class="banner" data-music="FreeNEasy.mp3">
-                <span class="fa-layers fa-fw fa-7x plate">
-                    <i class="fas fa-square-full" data-fa-transform="rotate-45"></i>
-                    <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2011</span>
+                <span class="fa-layers fa-fw fa-4x plate">
+                    <i class="fas fa-square-full" data-fa-transform="rotate-45 grow-10"></i>
+                    <span class="fa-layers-text fa-inverse" style="font-weight:900">2011</span>
                 </span>
             </div>
             <section id="i-stopped-caring-in-96" class="multi" data-music="LessThanZero.mp3">
@@ -361,9 +370,9 @@
         <section id="2010" class="year">
             <h2 class="hidden">2010</h2>
             <div id="b8" class="banner" data-music="MessinWithMyHead.mp3">
-                <span class="fa-layers fa-fw fa-7x plate">
-                    <i class="fas fa-square-full" data-fa-transform="rotate-45"></i>
-                    <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2010</span>
+                <span class="fa-layers fa-fw fa-4x plate">
+                    <i class="fas fa-square-full" data-fa-transform="rotate-45 grow-10"></i>
+                    <span class="fa-layers-text fa-inverse" style="font-weight:900">2010</span>
                 </span>
             </div>
             <section id="k-flay" class="multi" data-music="NoDuh.mp3">
@@ -388,9 +397,9 @@
         <section id="2009" class="year">
             <h2 class="hidden">2009</h2>
             <div id="b9" class="banner" data-music="PaperPlanesAndSpitballs.mp3">
-                <span class="fa-layers fa-fw fa-7x plate">
-                    <i class="fas fa-square-full" data-fa-transform="rotate-45"></i>
-                    <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-7" style="font-weight:900">2009</span>
+                <span class="fa-layers fa-fw fa-4x plate">
+                    <i class="fas fa-square-full" data-fa-transform="rotate-45 grow-10"></i>
+                    <span class="fa-layers-text fa-inverse" style="font-weight:900">2009</span>
                 </span>
             </div>
             <section id="single-and-famous" class="multi" data-music="RunningTrains.mp3">
@@ -445,6 +454,7 @@
             <div class="container clearfix">
                 <div id="shoe-container">
                     <div id="shoe">
+                        <!-- Load Seattle Sessions as a default, if they've selected another one scripts will automatically replace it. -->
                         <img src="Content/shoes/SeattleSessions.png" alt="Image of sneaker style shoe" />
                         <h3>Seattle Sessions</h3>
                     </div>
@@ -488,9 +498,13 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="three-container">
-
-            </div> -->
+        </section>
+        <section id="demo">
+            <h2>Demo</h2>
+            <div class="container">
+                <iframe src="https://www.youtube.com/embed/-Wv3337FrsI?rel=0" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </section>
     </section>
 </body>

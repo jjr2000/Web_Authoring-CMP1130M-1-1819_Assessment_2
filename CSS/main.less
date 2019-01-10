@@ -5,7 +5,16 @@ body {
 }
 
 .hidden{
-  display: none;
+  //Since this is an override class it is a valid use of !important.
+  display: none !important;
+}
+
+.fa-layers-text{
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 section#entry {
@@ -261,6 +270,8 @@ section#header {
   padding-bottom: 5rem;
 }
 
+/* Background images have been carefully chosen and positioned so that on devices that don't support the
+   parralaxing effect still have visually appealing image placements for a graceful fallback.  */
 #b1 {
   background-image: url("../Content/backdrop-1.jpg");
   background-position: center top;
@@ -480,6 +491,9 @@ section#customizer{
   }
 }
 
+/* Switch from a more 2 column layout to a 1 column layout on mobile devices to
+   make better use of the narrower screen, also tweak a few text sizes to make 
+   more space efficient. */
 @media only screen and (max-width: 768px) {
   .hamburger-nav nav {
     position: fixed;
@@ -534,4 +548,23 @@ section#customizer{
     }
   }
 
+}
+
+
+
+
+section#demo{
+  background-color: white;
+  h2{
+    color: black;
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem 0;
+    margin: 0;
+  }
+
+  iframe{
+    width: 100%;
+    height: 50vh;
+  }
 }
