@@ -13,6 +13,7 @@ section#entry {
   left: 0;
   right: 0;
   background-color: #000000;
+  font-size: 2rem;
 }
 section#entry:before {
   opacity: 0.3;
@@ -385,10 +386,11 @@ section#customizer #shoe-container #shoe {
 section#customizer #shoe-container #shoe img {
   width: 100%;
 }
-section#customizer #shoe-container #shoe h1 {
+section#customizer #shoe-container #shoe h3 {
   color: black;
   margin: 0;
   padding-bottom: 1rem;
+  font-size: 3rem;
 }
 section#customizer #albums-container {
   float: right;
