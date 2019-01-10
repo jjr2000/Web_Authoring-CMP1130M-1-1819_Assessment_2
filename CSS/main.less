@@ -42,22 +42,25 @@ section#entry {
   }
 }
 
-section#control #mute {
-  color: rgb(255, 255, 255);
-  position: fixed;
-  bottom: 1em;
-  right: 1em;
-  .fa-volume-mute {
-    display: none;
-    padding-right: 2px;
-    padding-bottom: 1px;
-  }
-  &.muted {
+section#control h2{
+  margin:0;
+  #mute {
+    color: rgb(255, 255, 255);
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
     .fa-volume-mute {
-      display: block;
-    }
-    .fa-volume-up {
       display: none;
+      padding-right: 0.14em;
+      padding-bottom: 0.1em;
+    }
+    &.muted {
+      .fa-volume-mute {
+        display: block;
+      }
+      .fa-volume-up {
+        display: none;
+      }
     }
   }
 }

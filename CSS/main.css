@@ -40,21 +40,24 @@ section#entry #enter:hover {
   background-color: #ffffff;
   color: #000000;
 }
-section#control #mute {
+section#control h2 {
+  margin: 0;
+}
+section#control h2 #mute {
   color: #ffffff;
   position: fixed;
   bottom: 1em;
   right: 1em;
 }
-section#control #mute .fa-volume-mute {
+section#control h2 #mute .fa-volume-mute {
   display: none;
-  padding-right: 2px;
-  padding-bottom: 1px;
+  padding-right: 0.14em;
+  padding-bottom: 0.1em;
 }
-section#control #mute.muted .fa-volume-mute {
+section#control h2 #mute.muted .fa-volume-mute {
   display: block;
 }
-section#control #mute.muted .fa-volume-up {
+section#control h2 #mute.muted .fa-volume-up {
   display: none;
 }
 section#site {
