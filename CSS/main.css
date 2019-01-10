@@ -383,10 +383,18 @@ section#header .container {
 section#customizer {
   text-align: center;
 }
+section#customizer > h2 {
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+section#customizer > h3 {
+  font-size: 2rem;
+  margin-top: 0.2rem;
+}
 section#customizer #shoe-container {
   float: left;
   box-sizing: border-box;
-  padding: 0 0.5rem;
+  padding: 0 0.5rem 0.5rem 0.5rem;
   width: 50%;
 }
 section#customizer #shoe-container #shoe {
