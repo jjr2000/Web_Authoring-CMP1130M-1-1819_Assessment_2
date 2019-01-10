@@ -355,21 +355,21 @@ section#header .container {
   right: 50%;
   transform: translateY(-50%);
 }
-.single .listing .text h1 {
+.single .listing .text h2 {
   font-size: 2.5rem;
 }
-.single .listing .text h2 {
+.single .listing .text h3 {
   font-size: 3rem;
 }
 .multi .text {
   width: 50%;
   float: left;
 }
-.multi .text h1 {
+.multi .text h2 {
   font-size: 2rem;
   margin-bottom: 0;
 }
-.multi .text h2 {
+.multi .text h3 {
   font-size: 2.5rem;
   margin-top: 0.2rem;
 }
